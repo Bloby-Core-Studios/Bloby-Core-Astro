@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&display=swap');
 @import 'tailwindcss';
 
 @theme {
-    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-primary: #f67280;
-    --color-primary-content: #101828;
-    --color-complementary: #355c7d;
+    --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --color-primary: #84f15c;
+    --color-primary-content: #0a120d;
+    --color-complementary: #0b130d;
     --background-image-noise: linear-gradient(
             to bottom,
             color-mix(in oklab, var(--color-gray-950) 0%, transparent),
@@ -15,7 +16,7 @@
 
 @layer base {
     h1 {
-        @apply text-4xl font-bold tracking-tight sm:text-5xl;
+        @apply text-4xl font-semibold tracking-tight sm:text-5xl;
     }
 
     h2 {
@@ -37,6 +38,27 @@
 }
 
 @layer components {
+    .headline {
+        @apply text-4xl font-semibold tracking-tight sm:text-6xl;
+    }
+
+    .tagline {
+        @apply text-lg text-white/70 sm:text-xl;
+    }
+
+    .glass-card {
+        @apply rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_0_40px_-20px_rgba(132,241,92,0.7)];
+        backdrop-filter: blur(18px);
+    }
+
+    .soft-card {
+        @apply rounded-2xl border border-white/10 bg-white/5 p-5;
+    }
+
+    .pill {
+        @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm uppercase tracking-[0.2em] text-white/70;
+    }
+
     .markdown {
         > * {
             @apply my-6;
@@ -57,9 +79,9 @@
 
     .btn {
         @apply inline-flex items-center justify-center gap-2 bg-primary text-primary-content cursor-pointer text-center font-semibold no-underline transition-colors;
-        padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
-        font-size: var(--btn-font-size, 0.875rem);
-        border-radius: var(--btn-border-radius, 0.25rem);
+        padding: var(--btn-py, 0.875rem) var(--btn-px, 1.5rem);
+        font-size: var(--btn-font-size, 0.95rem);
+        border-radius: var(--btn-border-radius, 999px);
 
         &:hover {
             @apply bg-primary/85;
@@ -71,7 +93,7 @@
     }
 
     .btn-lg {
-        --btn-font-size: 1.125rem;
+        --btn-font-size: 1.05rem;
         --btn-px: 1.5rem;
         --btn-py: 1.125rem;
     }
