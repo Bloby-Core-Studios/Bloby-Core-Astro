@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const modsAvailable = false;
+---
+
+<Layout title="Contact the Moderation Team">
+    <section class="relative overflow-hidden py-12 sm:py-16">
+        <div class="absolute -top-16 right-0 h-64 w-64 rounded-full bg-primary/25 blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-emerald-500/15 blur-[140px] pointer-events-none"></div>
+        <div class="relative z-10 space-y-10">
+            <div class="space-y-4">
+                <p class="pill">Moderation support</p>
+                <h1>Contact the Moderation Team</h1>
+                <p class="tagline">
+                    Reach the Bloby Core moderators for safety checks, reporting, or account guidance. A live
+                    mod will respond as soon as one is available.
+                </p>
+            </div>
+            <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+                <div class="soft-card space-y-4">
+                    <h2 class="text-xl font-semibold">Before you submit a request</h2>
+                    <p class="text-white/70">
+                        Share your handle, the channel or match where the issue occurred, and any screenshots
+                        or clips. The more context you provide, the faster the moderators can help.
+                    </p>
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                        <p class="text-sm uppercase tracking-[0.2em] text-white/50">Coverage</p>
+                        <p class="mt-2 text-white/70">
+                            Live moderation runs from 12:00 PM to 8:30 PM ET on school days, and from 11:00 AM
+                            to 9:30 PM ET on non-school days.
+                        </p>
+                    </div>
+                </div>
+                <div class="glass-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm uppercase tracking-[0.25em] text-white/50">Live queue</p>
+                            <p class="mt-2 text-2xl font-semibold">Mod availability</p>
+                        </div>
+                        <span class="pill">Offline</span>
+                    </div>
+                    <div class="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <p class="text-sm uppercase tracking-[0.2em] text-white/50">Status</p>
+                        {modsAvailable ? (
+                            <p class="mt-3 text-lg font-semibold text-primary">A moderator is ready to chat.</p>
+                        ) : (
+                            <p class="mt-3 text-lg font-semibold text-white">Waiting for available mods…</p>
+                        )}
+                        <p class="mt-3 text-sm text-white/70">
+                            Keep this page open. A live chat prompt will appear when a moderator joins the queue.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

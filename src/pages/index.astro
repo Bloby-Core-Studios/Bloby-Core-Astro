@@ -1,19 +1,218 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
 
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
+const guilds = [
+    {
+        name: 'Core Raiders',
+        focus: 'Nightly co-op raids with tight comms and faster clears.',
+        count: '42 squads'
+    },
+    {
+        name: 'Bloby Labs',
+        focus: 'Theorycrafting, loadout testing, and new-player coaching.',
+        count: '19 squads'
+    },
+    {
+        name: 'Neon Drift',
+        focus: 'Speedrun crews, remix challenges, and weekly showdowns.',
+        count: '27 squads'
+    }
+];
 
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
+const events = [
+    { day: 'Wed', title: 'Core Rush Arena', time: '7:30 PM ET', type: 'Tournament' },
+    { day: 'Fri', title: 'Nightfall Co-op', time: '9:00 PM ET', type: 'Raid' },
+    { day: 'Sat', title: 'Streamer Spotlight', time: '3:00 PM ET', type: 'Live' }
+];
 ---
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Bloby Core Community">
+    <section class="relative overflow-hidden pt-4 pb-16 sm:pt-8 sm:pb-20">
+        <div class="absolute -top-24 right-0 h-72 w-72 rounded-full bg-primary/30 blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-emerald-500/20 blur-[140px] pointer-events-none"></div>
+        <div class="relative z-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div class="space-y-8">
+                <span class="pill">Bloby Core Gamers</span>
+                <div class="space-y-6">
+                    <h1 class="headline">A cozy blob at the center of competitive play.</h1>
+                    <p class="tagline">
+                        The Bloby Core Community blends chill co-op energy with high-skill lobbies. Squad up,
+                        trade builds, and push the leaderboard together.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://discord.gg/g7hvmjr5Yq" class="btn btn-lg">Join the Drop</a>
+                    <a href="#events" class="btn btn-lg bg-white/10 text-white border border-white/20 hover:bg-white/20">
+                        View Events
+                    </a>
+                </div>
+                <div class="grid gap-6 sm:grid-cols-3">
+                    <div class="soft-card">
+                        <p class="text-2xl font-semibold">4,200+</p>
+                        <p class="text-sm text-white/60">Active members</p>
+                    </div>
+                    <div class="soft-card">
+                        <p class="text-2xl font-semibold">60+</p>
+                        <p class="text-sm text-white/60">Weekly squads</p>
+                    </div>
+                    <div class="soft-card">
+                        <p class="text-2xl font-semibold">14</p>
+                        <p class="text-sm text-white/60">Partnered creators</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="glass-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm uppercase tracking-[0.25em] text-white/50">Core Signal</p>
+                            <p class="mt-2 text-3xl font-semibold">Bloby Online</p>
+                        </div>
+                        <div class="h-16 w-16 rounded-2xl bg-primary/20 grid place-items-center">
+                            <span class="text-2xl">●</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 space-y-4">
+                        <div class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                            <div>
+                                <p class="text-sm text-white/60">Now Playing</p>
+                                <p class="font-semibold">Core Drift Arena</p>
+                            </div>
+                            <p class="text-sm text-primary">Live</p>
+                        </div>
+                        <div class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                            <div>
+                                <p class="text-sm text-white/60">Queue Time</p>
+                                <p class="font-semibold">2m 14s</p>
+                            </div>
+                            <p class="text-sm text-white/50">Ranked</p>
+                        </div>
+                        <div class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                            <div>
+                                <p class="text-sm text-white/60">Squad Boost</p>
+                                <p class="font-semibold">+12% XP</p>
+                            </div>
+                            <p class="text-sm text-white/50">All week</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -bottom-8 -right-6 hidden rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-white/70 shadow-lg lg:block">
+                    “Soft vibes, sharp plays.”
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="guilds" class="py-16">
+        <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+                <p class="pill">Guild network</p>
+                <h2 class="mt-4 text-3xl font-semibold">Choose the crew that matches the mood.</h2>
+            </div>
+            <p class="max-w-xl text-white/60">
+                Every guild is curated around a playstyle. Hop between squads, find your captain, or start a
+                new room with community tooling that keeps everyone synced.
+            </p>
+        </div>
+        <div class="mt-10 grid gap-6 lg:grid-cols-3">
+            {guilds.map((guild) => (
+                <article class="soft-card">
+                    <p class="text-xl font-semibold">{guild.name}</p>
+                    <p class="mt-3 text-sm text-white/60">{guild.focus}</p>
+                    <p class="mt-6 text-sm text-primary">{guild.count}</p>
+                </article>
+            ))}
+        </div>
+    </section>
+
+    <section id="events" class="py-16">
+        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div class="glass-card">
+                <div class="flex items-center justify-between">
+                    <p class="pill">Weekly circuit</p>
+                    <p class="text-sm text-white/60">Next 7 days</p>
+                </div>
+                <div class="mt-6 space-y-4">
+                    {events.map((event) => (
+                        <div class="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                            <div>
+                                <p class="text-sm text-white/60">{event.day}</p>
+                                <p class="text-lg font-semibold">{event.title}</p>
+                                <p class="text-sm text-white/50">{event.time}</p>
+                            </div>
+                            <span class="rounded-full border border-white/20 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white/70">
+                                {event.type}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-3xl font-semibold">Events built for squads that show up.</h2>
+                <p class="text-white/60">
+                    Expect rapid-fire tournaments, chill scrims, and community broadcasts. Every event pairs
+                    a real-time drop channel with a recap queue so nobody misses a play.
+                </p>
+                <div class="soft-card">
+                    <p class="text-sm text-white/60">Broadcast stack</p>
+                    <p class="mt-2 font-semibold">Live stats + auto-clipped highlights + creator overlays</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="streams" class="py-16">
+        <div class="glass-card">
+            <div class="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
+                <div class="space-y-4">
+                    <p class="pill">Creator lounge</p>
+                    <h2 class="text-3xl font-semibold">Streamers get the cozy control room.</h2>
+                    <p class="text-white/60">
+                        Auto-queued co-hosts, curated hype squads, and a rotation that keeps fans in the mix.
+                        Bring the squad and the blob energy.
+                    </p>
+                </div>
+                <div class="grid w-full max-w-md gap-4 sm:grid-cols-2">
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <p class="text-2xl font-semibold">24/7</p>
+                        <p class="text-sm text-white/60">Channel coverage</p>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <p class="text-2xl font-semibold">3x</p>
+                        <p class="text-sm text-white/60">Raid rates</p>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <p class="text-2xl font-semibold">98%</p>
+                        <p class="text-sm text-white/60">Replay accuracy</p>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <p class="text-2xl font-semibold">15</p>
+                        <p class="text-sm text-white/60">Partner channels</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join" class="py-16">
+        <div class="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-emerald-500/20 via-transparent to-primary/20 p-10">
+            <div class="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-primary/40 blur-[90px] pointer-events-none"></div>
+            <div class="relative z-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                <div class="space-y-4">
+                    <p class="pill">Join the core</p>
+                    <h2 class="text-3xl font-semibold">Step into the Bloby Core and drop in tonight.</h2>
+                    <p class="text-white/70">
+                        Join once and get matched into your first squad, event calendar, and creator watchlist in
+                        under five minutes.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end">
+                    <a href="#" class="btn btn-lg">Enter the Lobby</a>
+                    <a href="/contact-mods" class="btn btn-lg bg-white/10 text-white border border-white/20 hover:bg-white/20">
+                        Talk to a Mod
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 </Layout>
